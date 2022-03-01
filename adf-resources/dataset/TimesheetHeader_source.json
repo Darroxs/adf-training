@@ -1,0 +1,18 @@
+{
+	"name": "TimesheetHeader_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "eBECS_SupportSand_Link",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "TimesheetApp"
+		},
+		"annotations": [],
+		"type": "CommonDataServiceForAppsEntity",
+		"schema": [],
+		"typeProperties": {
+			"entityName": "tsa_ts_timesheetheader"
+		}
+	}
+}
