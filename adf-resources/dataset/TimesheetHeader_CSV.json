@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "TimesheetHeader_stage.csv",
 				"fileSystem": "power-platform-dataflows"
 			},
 			"columnDelimiter": ",",
