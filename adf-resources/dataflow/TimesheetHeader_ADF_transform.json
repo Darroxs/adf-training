@@ -1,0 +1,28 @@
+{
+	"name": "TimesheetHeader_ADF_transform",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "TimesheetHeader_ADF_Test_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sourceTimesheetHeaderSink"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TimesheetHeader_CSV",
+						"type": "DatasetReference"
+					},
+					"name": "TimesheetHeaderStaging"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\ttsa_timesheetid as integer,\n\t\ttsa_username as string,\n\t\ttsa_periodstartdate as date,\n\t\ttsa_periodenddate as date,\n\t\ttsa_status as string,\n\t\ttsa_total as decimal(6,2),\n\t\ttsa_posteddatetime as timestamp,\n\t\ttsa_createdon as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_COMMITTED',\n\tformat: 'table') ~> sourceTimesheetHeaderSink\nsourceTimesheetHeaderSink sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> TimesheetHeaderStaging"
+		}
+	}
+}

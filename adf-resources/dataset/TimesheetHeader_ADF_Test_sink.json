@@ -1,0 +1,59 @@
+{
+	"name": "TimesheetHeader_ADF_Test_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSQL_TimesheetDB",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "TimesheetApp"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "tsa_timesheetid",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "tsa_username",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tsa_periodstartdate",
+				"type": "date"
+			},
+			{
+				"name": "tsa_periodenddate",
+				"type": "date"
+			},
+			{
+				"name": "tsa_status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tsa_total",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 2
+			},
+			{
+				"name": "tsa_posteddatetime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "tsa_createdon",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "stg",
+			"table": "TimesheetHeader_ADF_Test"
+		}
+	}
+}
