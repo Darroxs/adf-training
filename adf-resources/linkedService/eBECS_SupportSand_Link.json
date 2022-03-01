@@ -1,0 +1,16 @@
+{
+	"name": "eBECS_SupportSand_Link",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "CommonDataServiceForApps",
+		"typeProperties": {
+			"deploymentType": "Online",
+			"serviceUri": "https://org4a791202.crm11.dynamics.com/",
+			"authenticationType": "AADServicePrincipal",
+			"servicePrincipalCredentialType": "ServicePrincipalKey",
+			"servicePrincipalId": "99ac2124-a443-4276-a464-387c491a85b5",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDA4MkQ0M0U2LTUxMkItNDc5Qy1COTE0LUE3MUU1NzFBODNGMl8zMTdkOWI0Yy0wYmYzLTRiN2EtYTU1NS0wZTUxZTc3NGNmOTkiDQp9"
+		}
+	}
+}
