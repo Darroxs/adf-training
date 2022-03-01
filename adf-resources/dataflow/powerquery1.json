@@ -1,0 +1,20 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "TimesheetHeader_ADF_Test_sink",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~>  TimesheetHeader_ADF_Test_sink",
+					"dataset": {
+						"referenceName": "TimesheetHeader_ADF_Test_sink",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared TimesheetHeader_ADF_Test_sink = let\r\n  AdfDoc = Sql.Database(\"supportsqlserver.database.windows.net\", \"SupportTimesheetDB\", [CreateNavigationProperties = false]),\r\n  InputTable = AdfDoc{[Schema = \"stg\", Item = \"TimesheetHeader_ADF_Test\"]}[Data]\r\nin\r\n  InputTable;\r\nshared UserQuery = let\r\n  Source = TimesheetHeader_ADF_Test_sink\r\nin\r\n  Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
