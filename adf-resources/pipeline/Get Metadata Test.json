@@ -1,0 +1,55 @@
+{
+	"name": "Get Metadata Test",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "TimesheetHeader_ADF_Test_sink",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"columnCount",
+						"structure"
+					]
+				}
+			},
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@activity('Get Metadata1').output",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "IntigerCase"
+						}
+					]
+				}
+			}
+		],
+		"annotations": []
+	}
+}
