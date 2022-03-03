@@ -5,26 +5,8 @@
 			"referenceName": "GeneralConnectorForAzureDB",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"SQL_Schema_Name": {
-				"type": "string"
-			},
-			"SQL_Table_Name": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": {
-				"value": "@dataset().SQL_Schema_Name",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().SQL_Table_Name",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	}
 }
