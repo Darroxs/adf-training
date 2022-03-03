@@ -21,30 +21,11 @@
 					},
 					"fieldList": [
 						"structure",
-						"columnCount"
-					]
-				}
-			},
-			{
-				"name": "Switch1",
-				"type": "Switch",
-				"dependsOn": [
-					{
-						"activity": "Get Metadata1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"on": {
-						"value": "@activity('Get Metadata1').output",
-						"type": "Expression"
-					},
-					"cases": [
+						"columnCount",
+						"exists",
 						{
-							"value": "Number of columns"
+							"value": "lastModified",
+							"type": "Expression"
 						}
 					]
 				}
