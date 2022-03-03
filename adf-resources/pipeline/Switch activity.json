@@ -1,0 +1,45 @@
+{
+	"name": "Switch activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@string( rand(0, 1) )",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "1",
+							"activities": [
+								{
+									"name": "Set variable1",
+									"type": "SetVariable",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"variableName": "TestResult",
+										"value": "1"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"TestResult": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "ControlFlow"
+		},
+		"annotations": []
+	}
+}
