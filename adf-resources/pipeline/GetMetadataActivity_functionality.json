@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata1",
+				"name": "Get Metadata from a table",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -30,11 +30,11 @@
 				}
 			},
 			{
-				"name": "Get Metadata2",
+				"name": "Get Metadata from a file",
 				"type": "GetMetadata",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata1",
+						"activity": "Get Metadata from a table",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -68,8 +68,33 @@
 						"type": "DelimitedTextReadSettings"
 					}
 				}
+			},
+			{
+				"name": "Set ItemName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata from a file",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ItemName",
+					"value": {
+						"value": "@{activity('Get Metadata from a file').output.itemName}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"ItemName": {
+				"type": "String"
+			}
+		},
 		"folder": {
 			"name": "ControlFlow"
 		},
