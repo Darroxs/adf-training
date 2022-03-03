@@ -1,0 +1,83 @@
+{
+	"name": "CECases",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSQL_TimesheetDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CaseNumberPK",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 0
+			},
+			{
+				"name": "CustomerFK",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 0
+			},
+			{
+				"name": "CustomerName",
+				"type": "varchar"
+			},
+			{
+				"name": "CaseNumber",
+				"type": "varchar"
+			},
+			{
+				"name": "CaseTitle",
+				"type": "varchar"
+			},
+			{
+				"name": "CaseType",
+				"type": "varchar"
+			},
+			{
+				"name": "Priority",
+				"type": "varchar"
+			},
+			{
+				"name": "StatusReason",
+				"type": "varchar"
+			},
+			{
+				"name": "SLAStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "Owner",
+				"type": "varchar"
+			},
+			{
+				"name": "Status",
+				"type": "varchar"
+			},
+			{
+				"name": "CreatedOn",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "KSA",
+				"type": "decimal",
+				"precision": 3,
+				"scale": 0
+			},
+			{
+				"name": "ModifiedOn",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "stg",
+			"table": "CE_STG_Cases"
+		}
+	}
+}
