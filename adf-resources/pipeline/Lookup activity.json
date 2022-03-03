@@ -1,0 +1,126 @@
+{
+	"name": "Lookup activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Extract Names of Tables to Export",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT Schema_Name, Table_Name FROM [dbo].[TablesToExport]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "TableLists",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Run for each table",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Extract Names of Tables to Export",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Extract Names of Tables to Export').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy SQL Tables to Storage Account",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SQLTable",
+									"type": "DatasetReference",
+									"parameters": {
+										"SQL_Schema_Name": {
+											"value": "@item().Schema_Name",
+											"type": "Expression"
+										},
+										"SQL_Table_Name": {
+											"value": "@item().Table_Name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CSVTable",
+									"type": "DatasetReference",
+									"parameters": {
+										"File_Name": {
+											"value": "@concat(item().Schema_Name, '_', item().Table_Name, '.csv')",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"folder": {
+			"name": "ControlFlow"
+		},
+		"annotations": []
+	}
+}
