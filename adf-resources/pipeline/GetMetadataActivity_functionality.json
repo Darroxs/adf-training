@@ -58,7 +58,8 @@
 						"itemType",
 						"lastModified",
 						"size",
-						"structure"
+						"structure",
+						"exists"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
