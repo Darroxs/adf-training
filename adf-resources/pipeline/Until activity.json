@@ -1,0 +1,9 @@
+{
+	"name": "Until activity",
+	"properties": {
+		"folder": {
+			"name": "ControlFlow"
+		},
+		"annotations": []
+	}
+}
