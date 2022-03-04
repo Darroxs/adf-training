@@ -1,0 +1,81 @@
+{
+	"name": "Web activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-20.ukwest.logic.azure.com:443/workflows/955331d377c94b9089c16fd9e28af029/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=T_FNNz6m7VFZ2grRrqq4KFtqgWloKk8C18ZrQVPnnTo",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"title\": \"PIPELINE RUN FINISHED\",\n\"message\": \"DEMO PIPELINE FINISHED RUNNING SUCCESSFULLY!\",\n\"dataFactoryName\":\"@{pipeline().DataFactory}\",\n\"pipelineName\":\"@{pipeline().Pipeline}\",\n\"pipelineRunId\": \"@{pipeline().RunId}\",\n\"time\": \"@{utcnow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "CommonDataServiceForAppsSource"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "TimesheetHeader_source",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ExtractFromTimesheetHeaderTable",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "ControlFlow"
+		},
+		"annotations": []
+	}
+}

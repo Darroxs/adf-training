@@ -1,0 +1,22 @@
+{
+	"name": "ExtractFromTimesheetHeaderTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorageV2_storragefortesting",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ExtractFromTimesheetHeaderTable.csv",
+				"fileSystem": "exported-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
