@@ -40,7 +40,7 @@
 									"partitionOption": "None"
 								},
 								"dataset": {
-									"referenceName": "MetadataDrivenCopyTask-DM_od7_ControlDS",
+									"referenceName": "MetadataDrivenCopyTask_DM_od7_ControlDS",
 									"type": "DatasetReference"
 								},
 								"firstRowOnly": false

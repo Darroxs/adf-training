@@ -1,5 +1,5 @@
 {
-	"name": "MetadataDrivenCopyTask-DM_od7_SourceDS",
+	"name": "MetadataDrivenCopyTask_DM_od7_SourceDS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "GeneralConnectorForAzureDB",

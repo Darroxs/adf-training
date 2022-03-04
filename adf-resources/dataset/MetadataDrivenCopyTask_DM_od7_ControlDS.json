@@ -1,5 +1,5 @@
 {
-	"name": "MetadataDrivenCopyTask-DM_od7_ControlDS",
+	"name": "MetadataDrivenCopyTask_DM_od7_ControlDS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "GeneralConnectorForAzureDB",
@@ -12,7 +12,7 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "ControlTable",
+			"schema": "dbo",
 			"table": "MainControlTable_od7"
 		}
 	}

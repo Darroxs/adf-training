@@ -26,7 +26,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "MetadataDrivenCopyTask-DM_od7_ControlDS",
+						"referenceName": "MetadataDrivenCopyTask_DM_od7_ControlDS",
 						"type": "DatasetReference"
 					}
 				}
@@ -106,11 +106,11 @@
 			},
 			"MaxNumberOfConcurrentTasks": {
 				"type": "Int",
-				"defaultValue": 20
+				"defaultValue": 5
 			},
 			"MainControlTableName": {
 				"type": "String",
-				"defaultValue": "ControlTable.MainControlTable_od7"
+				"defaultValue": "dbo.MainControlTable_od7"
 			}
 		},
 		"folder": {

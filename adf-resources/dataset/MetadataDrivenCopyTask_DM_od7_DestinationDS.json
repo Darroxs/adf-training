@@ -1,5 +1,5 @@
 {
-	"name": "MetadataDrivenCopyTask-DM_od7_DestinationDS",
+	"name": "MetadataDrivenCopyTask_DM_od7_DestinationDS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "OutputOfSampleFiles",
