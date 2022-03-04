@@ -1,0 +1,19 @@
+{
+	"name": "MetadataDrivenCopyTask-DM_od7_ControlDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GeneralConnectorForAzureDB",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "MetadataDrivenCopyTask-DM_od7_20220304"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "ControlTable",
+			"table": "MainControlTable_od7"
+		}
+	}
+}
