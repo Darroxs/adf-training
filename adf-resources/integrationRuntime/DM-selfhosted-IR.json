@@ -1,0 +1,6 @@
+{
+	"name": "DM-selfhosted-IR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
