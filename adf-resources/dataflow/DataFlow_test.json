@@ -1,0 +1,55 @@
+{
+	"name": "DataFlow_test",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "FireCalls",
+						"type": "DatasetReference"
+					},
+					"name": "FireCalls"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          CallNumber as string,",
+				"          UnitID as string,",
+				"          IncidentNumber as string,",
+				"          CallType as string,",
+				"          CallDate as string,",
+				"          WatchDate as string,",
+				"          CallFinalDisposition as string,",
+				"          AvailableDtTm as string,",
+				"          Address as string,",
+				"          City as string,",
+				"          Zipcode as string,",
+				"          Battalion as string,",
+				"          StationArea as string,",
+				"          Box as string,",
+				"          OriginalPriority as string,",
+				"          Priority as string,",
+				"          FinalPriority as string,",
+				"          ALSUnit as string,",
+				"          CallTypeGroup as string,",
+				"          NumAlarms as string,",
+				"          UnitType as string,",
+				"          UnitSequenceInCallDispatch as string,",
+				"          FirePreventionDistrict as string,",
+				"          SupervisorDistrict as string,",
+				"          Neighborhood as string,",
+				"          Location as string,",
+				"          RowID as string,",
+				"          Delay as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false) ~> FireCalls"
+			]
+		}
+	}
+}

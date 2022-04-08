@@ -1,0 +1,137 @@
+{
+	"name": "FireCalls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorageForTesting",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sf-fire-calls.csv",
+				"folderPath": "LearningSpark/data",
+				"fileSystem": "data-explorer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CallNumber",
+				"type": "String"
+			},
+			{
+				"name": "UnitID",
+				"type": "String"
+			},
+			{
+				"name": "IncidentNumber",
+				"type": "String"
+			},
+			{
+				"name": "CallType",
+				"type": "String"
+			},
+			{
+				"name": "CallDate",
+				"type": "String"
+			},
+			{
+				"name": "WatchDate",
+				"type": "String"
+			},
+			{
+				"name": "CallFinalDisposition",
+				"type": "String"
+			},
+			{
+				"name": "AvailableDtTm",
+				"type": "String"
+			},
+			{
+				"name": "Address",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "Zipcode",
+				"type": "String"
+			},
+			{
+				"name": "Battalion",
+				"type": "String"
+			},
+			{
+				"name": "StationArea",
+				"type": "String"
+			},
+			{
+				"name": "Box",
+				"type": "String"
+			},
+			{
+				"name": "OriginalPriority",
+				"type": "String"
+			},
+			{
+				"name": "Priority",
+				"type": "String"
+			},
+			{
+				"name": "FinalPriority",
+				"type": "String"
+			},
+			{
+				"name": "ALSUnit",
+				"type": "String"
+			},
+			{
+				"name": "CallTypeGroup",
+				"type": "String"
+			},
+			{
+				"name": "NumAlarms",
+				"type": "String"
+			},
+			{
+				"name": "UnitType",
+				"type": "String"
+			},
+			{
+				"name": "UnitSequenceInCallDispatch",
+				"type": "String"
+			},
+			{
+				"name": "FirePreventionDistrict",
+				"type": "String"
+			},
+			{
+				"name": "SupervisorDistrict",
+				"type": "String"
+			},
+			{
+				"name": "Neighborhood",
+				"type": "String"
+			},
+			{
+				"name": "Location",
+				"type": "String"
+			},
+			{
+				"name": "RowID",
+				"type": "String"
+			},
+			{
+				"name": "Delay",
+				"type": "String"
+			}
+		]
+	}
+}
