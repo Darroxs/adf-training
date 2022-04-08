@@ -3,11 +3,28 @@
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
-			"sources": [],
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Orders_json",
+						"type": "DatasetReference"
+					},
+					"name": "Orders"
+				}
+			],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				""
+				"source(output(",
+				"          name as string,",
+				"          location as string,",
+				"          satellites as string[],",
+				"          goods as (trade as boolean, customers as string[], orders as (orderId as integer, orderTotal as double, shipped as (orderItems as (itemName as string, itemQty as integer)[]))[])",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> Orders"
 			]
 		}
 	}
